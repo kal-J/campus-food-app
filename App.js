@@ -16,13 +16,11 @@ const App = () => {
       });
       setIsReady(true);
     })();
-  });
+  }, []);
 
   return (
     <Provider store={store}>
-      <GeneralStatusBar
-        backgroundColor={colors.primary}
-      />
+      <GeneralStatusBar backgroundColor={colors.primary} />
 
       <View style={{flex: 1}}>
         {isReady ? <HomeScreenRouter /> : <ActivityIndicator />}

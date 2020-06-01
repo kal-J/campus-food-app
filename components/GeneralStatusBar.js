@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View, StyleSheet, Platform, StatusBar} from 'react-native';
 import colors from '../layouts/colors';
 
@@ -11,13 +11,14 @@ const styles = StyleSheet.create({
 });
 
 const GeneralStatusBar = props => {
-  useEffect(() => {
-    StatusBar.setBackgroundColor(colors.primary);
-  }, []);
-
   return (
     <View style={styles.statusBar}>
-      <StatusBar barStyle="light-content" translucent={true} {...props} />
+      <StatusBar
+        backgroundColor={colors.primary}
+        barStyle="light-content"
+        translucent={true}
+        {...props}
+      />
     </View>
   );
 };

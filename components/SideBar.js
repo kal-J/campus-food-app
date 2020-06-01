@@ -16,7 +16,7 @@ import {
   Body,
 } from "native-base";
 import colors from "../layouts/colors";
-const routes = ["Location", "Vendors", "Orders", "Cart", "Account"];
+const routes = ["Location", "Vendors", "Orders", "Cart", "Account", "Signup", "Restaurant"];
 const SideBar = (props) => {
   const [headerImage, setHeaderImage] = useState();
   useEffect(() => {

@@ -1,16 +1,16 @@
 const VENDORS = [
   {
     id: 1,
-    name: "Lutrade Foods",
+    name: 'Lutrade Foods',
     rating: 4,
-    image: require("../assets/vendorImages/local-dish.jpg"),
+    image: require('../assets/vendorImages/local-dish.jpg'),
     delivers_to: [
       {
-        campus: "Lira University",
+        campus: 'Lira University',
         fee: 2000,
       },
       {
-        campus: "UTC Lira",
+        campus: 'UTC Lira',
         fee: 2000,
       },
     ],
@@ -19,31 +19,30 @@ const VENDORS = [
     id: 2,
     name: "Abbey's Joint",
     rating: 2,
-    image: require("../assets/vendorImages/pizza_joint.jpg"),
+    image: require('../assets/vendorImages/pizza_joint.jpg'),
     delivers_to: [
       {
-        campus: "Lira University",
+        campus: 'Lira University',
         fee: 2000,
       },
       {
-        campus: "UTC Lira",
+        campus: 'UTC Lira',
         fee: 2000,
       },
     ],
   },
   {
     id: 3,
-    name: "kal Foods",
+    name: 'kal Foods',
     rating: 4,
-    image: require("../assets/vendorImages/local-dish.jpg"),
+    image: require('../assets/vendorImages/local-dish.jpg'),
     delivers_to: [
       {
-        campus: "Lira University",
+        campus: 'Lira University',
         fee: 2000,
       },
-      
     ],
   },
 ];
 
-export { VENDORS };
+export {VENDORS};

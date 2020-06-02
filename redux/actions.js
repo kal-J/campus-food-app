@@ -1,28 +1,33 @@
-const changeCampus = (value) => ({
-  type: "CHANGE_CAMPUS",
+const changeCampus = value => ({
+  type: 'CHANGE_CAMPUS',
   payload: value,
 });
 
-const changePickupPoint = (value) => ({
-  type: "CHANGE_PICKUP_POINT",
+const changePickupPoint = value => ({
+  type: 'CHANGE_PICKUP_POINT',
   payload: value,
 });
 
-const newOrder = (value) => ({
-  type: "NEWORDER",
+const newOrder = value => ({
+  type: 'NEWORDER',
   payload: value,
 });
 
-const setUser = (value) => ({
-  type: "SETUSER",
+const setUser = value => ({
+  type: 'SETUSER',
   payload: value,
 });
-const updateCart = (value) => ({
-  type: "UPDATECART",
+const updateCart = value => ({
+  type: 'UPDATECART',
   payload: value,
 });
-const placeOrder = (value) => ({
-  type: "PLACEORDER",
+const placeOrder = value => ({
+  type: 'PLACEORDER',
+  payload: value,
+});
+
+const fetchVendors = value => ({
+  type: 'FETCHVENDORS',
   payload: value,
 });
 
@@ -33,4 +38,5 @@ export {
   setUser,
   updateCart,
   placeOrder,
+  fetchVendors,
 };

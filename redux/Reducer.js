@@ -1,17 +1,13 @@
-import { combineReducers } from "redux";
+import {combineReducers} from 'redux';
 
 const INITIAL_STATE = {
   user: {
     isLoggedin: false,
     auth0_credentials: null,
   },
-  vendor: {
-    name: null,
-    menu: null,
-    delivery_fee: null,
-  },
-  campus: "Lira University",
-  pickupPoint: "Blackroof",
+  vendors: [],
+  campus: 'Lira University',
+  pickupPoint: 'Blackroof',
   delivery_fee: 2000,
   // holds cart items
   orders: [],
@@ -21,50 +17,51 @@ const INITIAL_STATE = {
 
 const mainReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "CHANGE_CAMPUS": {
+    case 'CHANGE_CAMPUS': {
       let new_campus = action.payload;
-      let newState = { ...state, campus: new_campus };
+      let newState = {...state, campus: new_campus};
       return newState;
     }
-    case "CHANGE_PICKUP_POINT": {
+    case 'CHANGE_PICKUP_POINT': {
       let new_pickupPoint = action.payload;
-      let newState = { ...state, pickupPoint: new_pickupPoint };
+      let newState = {...state, pickupPoint: new_pickupPoint};
       return newState;
     }
-    case "NEWORDER": {
+    case 'NEWORDER': {
       let new_order = action.payload;
       let orders = state.orders;
       orders.push(new_order);
-      let newState = { ...state, orders: orders };
+      let newState = {...state, orders: orders};
       return newState;
     }
-    case "PLACEORDER": {
+    case 'PLACEORDER': {
       const order = action.payload;
       let ordersPlaced = state.ordersPlaced;
       ordersPlaced.push(order);
-      let newState = { ...state, ordersPlaced: ordersPlaced };
+      let newState = {...state, ordersPlaced: ordersPlaced};
+      return newState;
+    }
+    case 'FETCHVENDORS': {
+      const vendors = action.payload;
+      const newState = {...state, vendors: vendors};
       return newState;
     }
 
-    case "UPDATECART": {
+    case 'UPDATECART': {
       const orders = action.payload;
       if (orders.length === 0) {
         const newState = {
           ...state,
           orders: orders,
-          vendor: {
-            name: null,
-            menu: null,
-            delivery_fee: null,
-          },
+          vendors: [],
         };
         return newState;
       }
-      const newState = { ...state, orders: orders };
+      const newState = {...state, orders: orders};
       return newState;
     }
 
-    case "SETUSER": {
+    case 'SETUSER': {
       const auth0_credentials = action.payload;
       let isLoggedin = null;
       if (auth0_credentials.accessToken) {
@@ -74,7 +71,7 @@ const mainReducer = (state = INITIAL_STATE, action) => {
       }
       const newState = {
         ...state,
-        user: { isLoggedin: isLoggedin, auth0_credentials: auth0_credentials },
+        user: {isLoggedin: isLoggedin, auth0_credentials: auth0_credentials},
       };
       return newState;
     }

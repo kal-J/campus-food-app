@@ -11,6 +11,7 @@ import {
   StyleSheet,
   TextInput,
   ScrollView,
+  Platform,
 } from 'react-native';
 import NavHeader from '../components/NavHeader';
 import {login, logout} from '../auth/Auth';
@@ -42,11 +43,11 @@ const Restaurant = props => {
   const [description, setDescription] = useState('');
   const meals = ['BREAKFAST', 'LUNCH', 'SUPPER'];
 
-  useEffect(() => {
-    if (menuData !== null && photo !== null) {
-      createVendor();
-    }
-  }, [menuData]);
+  // useEffect(() => {
+  //   if (menuData !== null && photo !== null) {
+  //     createVendor();
+  //   }
+  // }, [menuData]); look for better way to call api for creating a vendor
 
   const handleChoosePhoto = () => {
     const options = {
@@ -153,10 +154,7 @@ const Restaurant = props => {
             marginVertical: 10,
           }}>
           {photo ? (
-            <Image
-              source={{uri: photo.uri}}
-              style={{width: 50, height: 50}}
-            />
+            <Image source={{uri: photo.uri}} style={{width: 50, height: 50}} />
           ) : (
             <Button
               full

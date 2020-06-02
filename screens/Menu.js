@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Order from "../components/Order";
-import MenuNav from "../components/MenuNav";
+import React, {useState} from 'react';
+import Order from '../components/Order';
+import MenuNav from '../components/MenuNav';
 
-const Menu = (props) => {
-  const name = props.navigation.getParam("name");
-  const image = props.navigation.getParam("image");
-  const rating = props.navigation.getParam("rating");
+const Menu = props => {
+  const name = props.navigation.getParam('name');
+  const image = props.navigation.getParam('image');
+  const rating = props.navigation.getParam('rating');
   const [menuItem, setMenuItem] = useState(null);
   if (menuItem !== null) {
     return (
@@ -27,7 +27,5 @@ const Menu = (props) => {
     />
   );
 };
-
-
 
 export default Menu;

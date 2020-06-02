@@ -21,20 +21,17 @@ import Splash from '../components/Splash';
 
 const Vendors = props => {
   const [vendors, setVendors] = useState([]);
+  const {campus} = props.redux_state;
   useEffect(() => {
-    const all_vendors = props.redux_state.vendors;
-    const campuses = props.redux_state.campus;
-    if (all_vendors.length !== 0) {
+    if (VENDORS.length !== 0) {
+      props.fetchVendors(VENDORS);
       setVendors(
-        all_vendors.filter((vendor, index) =>
-          vendor.delivers_to.find(val => val.campus === campuses),
+        VENDORS.filter((vendor, index) =>
+          vendor.delivers_to.find(val => val.campus === campus),
         ),
       );
     }
-  }, [props.redux_state.campus, props.redux_state.vendors]);
-
-  //fetch vendors and put them in redux state
-  props.fetchVendors(VENDORS);
+  }, [campus, props]);
 
   // return loading screen if not done fetching vendors
   if (vendors.length === 0) {
